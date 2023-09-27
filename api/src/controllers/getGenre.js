@@ -2,7 +2,7 @@ const axios  = require("axios");
 const { Genre } = require("../db");
 
 
-const getGenre = async (req, res) => {
+const getGenre = async (_req, res) => {
   try {
     let genresDb = await Genre.findAll();
 
@@ -15,7 +15,7 @@ const getGenre = async (req, res) => {
 
     res.send(genresDb);
   } catch (error) {
-    res.status(400).json({error:error.message})
+    res.status(400).json({error: 'No hay generos'})
   }
 };
 

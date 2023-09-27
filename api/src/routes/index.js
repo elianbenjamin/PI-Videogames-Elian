@@ -16,8 +16,8 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get('/videogames', getGame) // seria /videogames si en app.js esta '/'.
-router.get('/videogames/:idVideogame', getGameId)
 router.get('/videogames/name', getQuery) 
+router.get('/videogames/:idVideogame', getGameId)
 router.post('/videogames', postGame)
 router.get('/genres', getGenre)
 

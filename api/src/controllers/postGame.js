@@ -132,7 +132,7 @@ const postGame = async (req, res) => {
     
     res.status(201).json(createdVideogame);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: 'Faltan datos en la creacion del videogames'});
   }
 };
 
