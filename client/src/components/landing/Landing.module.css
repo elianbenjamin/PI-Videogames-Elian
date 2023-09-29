@@ -1,0 +1,85 @@
+.hora{
+    position: absolute;  /* sino me gusta el reloj cambiarlo despues */
+    left: 1129px;
+    font-size: 36px;
+    font-family: "Press Start 2P", cursive;
+    color: #fff;
+}
+.div{
+    width :auto;
+    height: auto;
+    position: absolute;
+}
+.seccion{
+    display: flex;
+    width: 1536px;
+    height: 749px;
+}
+.img{
+    width:0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: 1;
+    transition: .5s ease;
+}
+.img:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter:contrast(120%)
+}
+.div2{
+    position: absolute;
+}
+
+
+
+
+
+
+.btn {
+ cursor: pointer;
+ border: none;
+ position:relative;
+ top: 536px;
+ left: 494px;
+ color: hwb(205.12deg 36.81% 7.16%);
+ padding: 8px 22px;
+ border-radius: 6px;
+ background: hsl(0deg 18% 10.89%);
+ transition: all 0.2s ease;
+ box-shadow: 0 0 5px cyan,
+ 0 0 25px cyan;
+ font-family: cursive;
+ font-size: large;
+ font-weight: 900;
+ font-style: oblique ;
+ 
+  }
+  
+    .btn:hover {
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan,
+    0 0 100px cyan, 0 0 200px cyan;
+    }
+  
+/* .btn:active {
+        transform: scale(0.96)
+    }
+ */
+/*  .btn:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}    */

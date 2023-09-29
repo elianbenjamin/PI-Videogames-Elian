@@ -1,0 +1,64 @@
+.div1{
+  flex: 0  18%;
+  margin: 1%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease-in-out;
+  width: 250px;
+    height: 305px;
+    position: relative;
+   background-color: #5c5a5cb0;
+   border-radius: 8px;
+    justify-content: space-around;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    display: inline-flex;
+    
+    
+}
+.btn{
+ 
+  margin: 1%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  
+  width: 250px;
+    height: 305px;
+   
+   background-color: #02003649;
+   border-radius: 8px;
+    justify-content: space-around;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    display: inline-flex;
+}
+
+.div1:hover{
+ 
+    transform: scale(1.05);
+
+}
+body{
+  background-image: url("https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg");
+}
+.name {
+   align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #dec5c5c9;
+    font-style: oblique;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .img {
+    max-width: 100%;
+    height: 180px;
+   
+    
+  }
+
+  .genres {
+    font-size: 16px;
+    color: #777;
+  }

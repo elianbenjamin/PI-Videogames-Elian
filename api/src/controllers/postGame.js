@@ -120,14 +120,14 @@ const postGame = async (req, res) => {
     const existingGenres = await Genre.findAll({ where: { name: genres } });
 
     // Si no existen, puedes crearlos aquí o manejarlo según tus necesidades
-    // ...
+ 
 
     // Crear el videojuego en la base de datos
     const createdVideogame = await Videogame.create({
       name, description, platforms, background_image, released, rating
     });
 
-    // Relacionar el videojuego con los géneros
+    // Relaciono el videojuego con los géneros
     await createdVideogame.addGenres(existingGenres);
     
     res.status(201).json(createdVideogame);

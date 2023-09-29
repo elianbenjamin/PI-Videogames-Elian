@@ -1,9 +1,31 @@
 import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom'
+import LandingPage from './components/landing/LandingPage';
+import HomePage from './components/home/HomePage';
+import NavBar from './components/navbar/NavBar';
+import DetailSmart from './components/detail/DetailSmart';
+
+
+
 
 function App() {
+
+  const location = useLocation()
+  const isHome = location.pathname === '/home'
+
   return (
     <div className="App">
-      <h1>Henry Videogames</h1>
+
+     {
+      !isHome && (<NavBar />) 
+     }
+
+     <Routes>
+      <Route path='/detail/:detailId' element={<DetailSmart  />}/>
+      <Route path='/home' element={<HomePage />}/>
+      <Route path='/' element={<LandingPage />}/>
+     </Routes>
+      
     </div>
   );
 }

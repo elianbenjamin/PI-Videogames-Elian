@@ -33,11 +33,15 @@ const getGameId = async (req, res) => {
         id: data.id,
         name: data.name,
         description: stripHtmlTags(data.description),
-        platforms: data.platforms,
+        platforms: data.platforms.map((plat)=>{
+          return plat.platform.name
+        }),
         background_image: data.background_image,
         released: data.released,
         rating: data.rating,
-        genres: data.genres
+        genres: data.genres.map((gen)=>{
+          return gen.name
+        })
       }
       return res.status(200).json(players);
     } else {

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+.title{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff0084; /* Color naranja */
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}

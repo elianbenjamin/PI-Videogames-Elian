@@ -2,27 +2,31 @@ const   axios  = require("axios");
 const { Videogame,Genre } = require("../db");
 
 
-
+  
 
 const getGame = async (_req, res) => {
   try {
     const videogamesDb = await Videogame.findAll({ include: Genre });
     console.log('soy la bases de datosss', videogamesDb);
 
-    const numberOfGames = 1;
+    const numberOfGames = 15;
     const videogamesApi = await axios.get(`https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page_size=${numberOfGames}`);
     console.log('LA APIIIII ESTA EN CAMINO', videogamesApi);
 
     const allVideogames = [...videogamesDb, ...videogamesApi.data.results].map(allVideogame=>{
       return{
         id: allVideogame.id,
-        name: allVideogame.name,
+        name: allVideogame.name, 
         description: allVideogame?.description,
-        platforms: allVideogame.platforms,
+        platforms: allVideogame.platforms.map((game)=>{
+          return game.platform.name
+        }),
         background_image: allVideogame.background_image,
         released: allVideogame.released,
         rating: allVideogame.rating,
-        genres: allVideogame.genres
+        genres: allVideogame.genres.map((game)=>{
+          return game.name
+        })
       }
     });
     return res.send(allVideogames);
