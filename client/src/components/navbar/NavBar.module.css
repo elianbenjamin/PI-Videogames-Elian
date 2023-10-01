@@ -1,4 +1,31 @@
-.div{
-    background-color: hsla(0, 79%, 46%, 0.397);
-    padding: 15px;
+.container{
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0.15) 0%, rgba(249, 249, 249, 0.03) 100%);
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px #0000001A;
+    display: flex;
+    margin-bottom: 25px;
+    
+}
+.img{
+    width: 30px;
+    height: 30px;
+    float:left;
+    
+    
+}
+.navLogo{
+display: flex;
+gap: 15px;
+margin-left: 25px;
+align-items: center;
+
+}
+.logoName{
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 5px;
 }

@@ -31,7 +31,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case VIDEOGAMES_NAME:
       return {
         ...state,
-        videogameName : payload
+        videogameName: payload
       }
 
     case CREATE_GAMES:

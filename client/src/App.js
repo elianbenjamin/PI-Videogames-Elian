@@ -8,6 +8,7 @@ import DetailSmart from './components/detail/DetailSmart';
 
 
 
+
 function App() {
 
   const location = useLocation()
@@ -16,14 +17,16 @@ function App() {
   return (
     <div className="App">
 
-     {
+    {/*  {
       !isHome && (<NavBar />) 
-     }
+     } */}
+     {/* para que no se muestre mi landing  */}
 
      <Routes>
       <Route path='/detail/:detailId' element={<DetailSmart  />}/>
       <Route path='/home' element={<HomePage />}/>
       <Route path='/' element={<LandingPage />}/>
+      
      </Routes>
       
     </div>

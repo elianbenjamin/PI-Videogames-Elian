@@ -1,0 +1,37 @@
+
+.input{
+    width: 200px;
+    height: 15px;
+    padding: 12px, 16px, 12px, 16px;
+    border-radius: 8px;
+    gap: 10px;
+    background: #F9F9F91A;
+    outline: none;
+    
+}
+.input::placeholder{
+    text-indent: 10px;
+}
+.btn{
+    margin-left: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background: #F9F9F91A;
+    color: #f9f9f9;
+}
+.name{
+    background-color: aliceblue;
+    width: 310px;
+    height: 20px;
+    font-size: small;
+   
+}
+.ul{
+    display: inline-block;
+    
+}
+.search{
+    margin-left: 700px;
+    margin-top: 20px;
+    
+}

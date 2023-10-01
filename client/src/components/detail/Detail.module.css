@@ -1,8 +1,20 @@
-.div{
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg");
+    position: absolute;
+    
+
+}
+
+
+.container{
     width: 400px;
     height: 500px;
+    
     align-items: center;
 }
+
 .div2{
     background-color: brown;
     
