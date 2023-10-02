@@ -4,8 +4,8 @@
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   transition: transform 0.3s ease-in-out;
   width: 250px;
-    height: 305px;
-    position: relative;
+  height: 305px;
+    
    background-color: #5c5a5cb0;
    border-radius: 8px;
     justify-content: space-around;

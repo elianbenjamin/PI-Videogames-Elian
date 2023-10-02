@@ -1,11 +1,13 @@
 .container{
     background: linear-gradient(180deg, rgba(249, 249, 249, 0.15) 0%, rgba(249, 249, 249, 0.03) 100%);
-    padding: 10px;
+    padding: 30px;
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 5px 5px 10px 0px #0000001A;
     display: flex;
     margin-bottom: 25px;
+    justify-content: space-between;
+    
     
 }
 .img{

@@ -6,6 +6,7 @@ import {
   DETAIL_GAMES,
   CREATE_GAMES,
   VIDEOGAMES_NAME,
+  CLEAN_DETAIL
 } from "./action-types";
 import axios from "axios";
 
@@ -13,6 +14,7 @@ export const getAllVideogames = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3001/videogames");
+      console.log('dataa videogames',response)
       if (!response) throw Error("errooooooor");
       dispatch({
         type: ALL_GAMES,
@@ -50,16 +52,27 @@ export const getVideogamesName = (name) => {
   };
 };
 
-let id = 1;
-export const createVideogames = (deportes) => {
-  return {
-    type: CREATE_GAMES,
-    payload: {
-      ...deportes,
-      id: id++,
-    },
+
+export const createVideogames = (games) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(`http://localhost:3001/videogames`, games)
+      dispatch({
+        type: CREATE_GAMES,
+        payload: {
+          ...games,
+          id: response.data.id 
+        },
+      });
+    } catch (error) {
+      console.log(error)
+    }
   };
 };
+
+export const cleanDetail = () =>({
+  type: CLEAN_DETAIL,
+})
 
 export const filterVideogames = (videogame) => {
   return {

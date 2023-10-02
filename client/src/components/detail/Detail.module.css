@@ -1,31 +1,46 @@
-.background{
-    width: 100vw;
-    height: 100vh;
-    background-image: url("https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg");
-    position: absolute;
-    
-
-}
-
-
 .container{
-    width: 400px;
-    height: 500px;
-    
+    width: 800px;
+    height: 708px;
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0.15) 0%, #acb0f67a 100%);
+    box-shadow: 12px 12px 8px 0px #0e0e0e82;
+    display: inline-block;
+    justify-content: center;
     align-items: center;
+    border-radius: 10px ;
+    margin-top: 20px;    
 }
-
-.div2{
-    background-color: brown;
+.containerHijo{
+    width: 750;
     
 }
-.text{
-    background-color: black;
-    color: aliceblue;
-}
-
 
 .img{
-    width: 300px;
-    height: 400px;
+    width:300px;
+    height:200px;
+    box-shadow: 12px 12px 8px 0px #0e0e0e82;
+    border-radius: 10px ;
+    margin-top: 15px;
+
+}
+.name{
+    color: white;
+    font-weight: 900;
+    font-style: oblique;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif
+}
+.genres {
+    font-weight: 800;
+    font-size: 16px;
+    color: #929292;
+    display: flex;
+    flex-direction: column;
+  }
+.rating{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif
+
+}
+.text{
+    overflow-y: auto;
+    height: 180px;
+    
 }

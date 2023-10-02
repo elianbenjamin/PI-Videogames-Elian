@@ -2,6 +2,7 @@ import {
   ALL_GAMES,
   DETAIL_GAMES,
   CREATE_GAMES,
+  CLEAN_DETAIL,
   FILTER,
   RESET,
   ORDER,
@@ -39,6 +40,11 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         videogames: [...state.videogames, payload],
       };
+    case CLEAN_DETAIL:
+      return {
+      ...state,
+        videogamesDetail:{}
+      }
 
     case FILTER:
       const allVideogamesFilter = state.allCharacters.filter(

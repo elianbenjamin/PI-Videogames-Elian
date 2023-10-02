@@ -10,9 +10,9 @@ const getQuery = async (req, res) => {
       include: Genre,
     });
     if (videogamesDb.length) {
-      // If data is found in the database, send the response
+    
       res.send(videogamesDb);
-      return; // Ensure we exit here if data is found
+      return; 
     }
 
     const page = 15;
@@ -24,13 +24,11 @@ const getQuery = async (req, res) => {
         },
       }
     );
-
-    // Check whether the API returned any results
     if (videogamesApi.data.results.length === 0) {
       throw new Error("No videogame found");
     } else {
       res.status(200).send(videogamesApi.data.results);
-      return; // Ensure we exit here if data is found
+      return; 
     }
   } catch (error) {
     res.status(403).json({ error: 'El videojuego con ese nombre no fue encontrado' });

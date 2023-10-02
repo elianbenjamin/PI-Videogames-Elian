@@ -3,20 +3,22 @@ import styles from "./Detail.module.css";
 import { useNavigate } from "react-router-dom";
 
 const DetailDumb = ({ props }) => {
-  const { name, background_image, description, released, genres, platforms } =
+  const { name, background_image, description, released, genres, platforms, rating } =
     props;
+
   const navigate = useNavigate();
+
   return (
-    <div className={styles.background}>
     <div className={styles.container}>
+    <div className={styles.containerHijo}>
       <div className={styles.div2}>
-        <h1>{name}</h1>
-        <br />
         <img className={styles.img} src={background_image} alt={name} />
-        <p className={styles.text}>{description}</p>
-        <h2>{genres}</h2>
-        <h1>{platforms}</h1>
-        <h3>{released}</h3>
+        <h1 className={styles.name}>{name}</h1>
+        <h3>Realesed: {released}</h3>
+        <h3>Platfroms: {platforms ? platforms.join(", ") : ""}</h3>
+        <h2 className={styles.genres}>Genres: {genres ? genres.join(", ") : ""}</h2>
+        <span className={styles.rating}>Rating: {rating}</span>
+        <p className={styles.text}>Description: {description}</p>
 
         <button
           onClick={() => {
