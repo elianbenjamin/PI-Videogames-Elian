@@ -28,7 +28,7 @@ const getGameId = async (req, res) => {
         return res.status(404).send(`No se encontró el videojuego con ID: ${idVideogame} en la API`);
       }
       
-      // Asegúrate de suprimir los tags HTML de la descripción aquí
+      
       const players = {
         id: data.id,
         name: data.name,

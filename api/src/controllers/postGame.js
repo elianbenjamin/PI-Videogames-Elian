@@ -1,6 +1,7 @@
 const { Videogame, Genre } = require('../db');
 
 const postGame = async (req, res) => {
+  
   try {  
     const { name, description, platforms, background_image, released, rating, genres } = req.body;
     
