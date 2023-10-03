@@ -1,7 +1,7 @@
 
 .input{
     width: 200px;
-    height: 15px;
+    height: 22px;
     padding: 8px;
     border-radius: 8px;
     gap: 10px;
@@ -15,35 +15,38 @@
     border: 1px solid black;
     background: #F9F9F91A;
     color: #f9f9f9;
+    height: 22px;
+}
+.btn:hover{
+    background:#847a7ab8 ;
+
+}
+.input:hover{
+    background:#a19e9e4e ;
 }
 
 .input::placeholder{
     text-indent: 10px;
 }
-.container1{
-    margin-right: 100px;
-}
-.container{
-    background-color: yellow;
-    
-    width:200px;
 
-}
+
 
 .hijo{
-    width: 300px;
+    width: 270px;
     max-Height: 400px;
-    overflow-y: auto ;
-    background-color: blue;
-    position:absolute;
-    
+    overflow-y: auto;
+    background-color: #94a3b8;
+    position: absolute;
+    overflow-x: auto;
+    margin-top: 6px;
+    border-radius: 8px;
    
 }
 
 .name{
-    background-color: aliceblue;
-    width: 310px;
-    height: 20px;
+    border-radius: 8px;
+    width: 206px;
+    height: 15px;
     font-size: small;
    
 }

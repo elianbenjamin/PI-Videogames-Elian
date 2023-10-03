@@ -54,6 +54,7 @@ const Form = () => {
         event.preventDefault()
         dispatch(createVideogames(games))
     }
+    
   
 
   return (
@@ -79,15 +80,18 @@ const Form = () => {
       <div className={styles.inputDescription}>
         <label className={styles.label}  htmlFor="description" >Description: </label>
         <input className={styles.input} id="description" type="text" name='description' value={games.description} onChange={handleChange}/>
+        {error.description && <p>{error.description}</p>}
       </div>
 
       <div className={styles.inputPlatforms}>
         <label className={styles.label} htmlFor="platforms" >Platforms: </label>
         <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="Ingrese las plataformas separadas por comas" value={games.platforms.toString()} onChange={handleChange}/>
+        {error.platforms && <p>{error.platforms}</p>}
       </div>
       <div className={styles.inputReleased}>
         <label className={styles.label} htmlFor="released" >Realesed: </label>
         <input className={styles.input} id="released" type="date" name='released' value={games.released} onChange={handleChange}/>
+        {error.released && <p>{error.released}</p>}
       </div>
 
       <div className={styles.inputRating}>
@@ -99,6 +103,7 @@ const Form = () => {
       <div className={styles.inputGenres}>
         <label className={styles.label} htmlFor="genres" >Genres: </label>
         <input className={styles.input} id="genres" type="text" name='genres' placeholder="Ingrese los géneros separados por comas"value={games.genres.toString()} onChange={handleChange}/>
+        {error.genres && <p>{error.genres}</p>}
       </div>
 
       <button className={styles.button} type="submit" onClick={handleSubmit}>Crear videoGames</button>

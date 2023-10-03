@@ -14,8 +14,8 @@ const DetailDumb = ({ props }) => {
       <div className={styles.div2}>
         <img className={styles.img} src={background_image} alt={name} />
         <h1 className={styles.name}>{name}</h1>
-        <h3>Realesed: {released}</h3>
-        <h3>Platfroms: {platforms ? platforms.join(", ") : ""}</h3>
+        <h3 className={styles.released}  >Realesed: {released}</h3>
+        <h3 className={styles.platforms}>Platfroms: {platforms ? platforms.join(", ") : ""}</h3>
         <h2 className={styles.genres}>Genres: {genres ? genres.join(", ") : ""}</h2>
         <span className={styles.rating}>Rating: {rating}</span>
         <p className={styles.text}>Description: {description}</p>

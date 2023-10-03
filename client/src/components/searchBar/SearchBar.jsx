@@ -34,10 +34,10 @@ const SearchBar = () => {
           <button className={styles.btn} type="submit" onClick={handleSearch}>Search</button>
          
         </form>
-        <div className={styles.container}>
+        <div>
         {videogameName && (
           <div className={styles.hijo }>
-               <ul>
+              
 
             {videogameName.map((game) => (
 
@@ -53,7 +53,7 @@ const SearchBar = () => {
                     </NavLink>
                 </div>
             ))}
-        </ul>
+        
      </div>
     
 )}

@@ -1,13 +1,13 @@
 /* Form.module.css */
 
 .cointainer {
-    width: 100%;
+    width: 450px;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
+    padding: 26px;
+    background-color: #8e8e8e8c;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 9px 13px 11px #fbfbfb6e;
 }
 
 .form {
@@ -18,9 +18,12 @@
 }
 
 .label {
+    margin-bottom: 10ox;
     font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: #efebebc9;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
 }
 
 .input {
@@ -40,6 +43,7 @@
 .inputGenres {
     display: flex;
     flex-direction: column;
+    
 }
 
 .button {
@@ -52,8 +56,9 @@
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #1b1c1d46;
 }

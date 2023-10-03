@@ -13,11 +13,14 @@ const NavBar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.navLogo}>
+                <NavLink to="/home">
                 <img className={styles.img} src="https://cdn2.iconfinder.com/data/icons/popular-games-1/50/warface_squircle-512.png" alt="" />
+                </NavLink>
                 <span className={styles.logoName}>ebrr</span>
+                
             </div>
             <NavLink to={'/creategames'}>
-            <button>CreateGames</button>
+            <button className={styles.btn}>Create Games</button>
             </NavLink>
             <SearchBar />
             
