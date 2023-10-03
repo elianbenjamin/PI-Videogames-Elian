@@ -1,6 +1,6 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import NavBar from "../navbar/NavBar";
-
+import Pagination from "../pagination/Pagination";
 import Card from "../card/Card";
 import { useSelector, useDispatch } from "react-redux";
 import {getAllVideogames} from "../../redux/action"
@@ -9,11 +9,16 @@ import {getAllVideogames} from "../../redux/action"
 
 
 const HomePage = () => {
+
+  const [pagina, setPagina] = useState(1)       //
+  const [porPagina, setPorPagina] = useState(10)   //
  
+  
   const dispatch = useDispatch();
   const {videogames}  = useSelector(state => state);
   console.log('heeeeey',videogames)
-    
+  
+  const maximo = videogames.length / porPagina;   //
 
   useEffect(() => {     
     dispatch(getAllVideogames());    
@@ -25,7 +30,7 @@ const HomePage = () => {
     <div>    
       <NavBar />
       
-      {videogames?.map(
+      {videogames?.slice((pagina -1) * porPagina ,(pagina -1) * porPagina + porPagina).map(
         ({ id, name, background_image, genres}) => {
           return (
             <Card
@@ -41,8 +46,9 @@ const HomePage = () => {
       )}
       <br /> 
       
-
+<Pagination  pagina={pagina}  setPagina={setPagina} maximo={maximo}/>
     </div>
+
   );
 };
 

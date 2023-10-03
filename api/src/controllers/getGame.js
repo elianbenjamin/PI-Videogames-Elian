@@ -3,7 +3,7 @@ const { Videogame, Genre } = require("../db");
 
 const getGame = async (_req, res) => {
   try {
-    const limit = 15;
+    const limit = 60;
 
     const [videogamesDb, videogamesApi] = await Promise.all([
       Videogame.findAll({ include:  Genre }),
