@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Detail.module.css";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../navbar/NavBar";
+
 
 const DetailDumb = ({ props }) => {
   const { name, background_image, description, released, genres, platforms, rating } =
@@ -9,6 +11,8 @@ const DetailDumb = ({ props }) => {
   const navigate = useNavigate();
 
   return (
+    <>
+      <NavBar />
     <div className={styles.container}>
     <div className={styles.containerHijo}>
       <div className={styles.div2}>
@@ -30,6 +34,7 @@ const DetailDumb = ({ props }) => {
       </div>
     </div>
     </div>
+    </>
   );
 };
 

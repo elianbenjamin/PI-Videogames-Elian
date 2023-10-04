@@ -5,13 +5,14 @@ import {
   CLEAN_DETAIL,
   FILTER,
   RESET,
+  RATING,
   ORDER,
   VIDEOGAMES_NAME
 } from "./action-types";
 
 const initialState = {
-  allVideogames: [],
   videogames: [],
+  allVideogames: [],
   videogameName: [],
   videogamesDetail: {},
 };
@@ -21,7 +22,8 @@ const reducer = (state = initialState, { type, payload }) => {
     case ALL_GAMES:
       return {
         ...state,
-        videogames: payload
+        videogames: payload,
+        allVideogames: payload
       };
 
     case DETAIL_GAMES:
@@ -47,9 +49,13 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
     case FILTER:
-      const allVideogamesFilter = state.allCharacters.filter(
-        (videogame) => videogame.gender === payload
-      );
+      const select = payload;
+      const allVideogamesFilter = state.allVideogames.filter((game) => {
+        if(select === ''){
+          return true;
+        }
+        return game.genres.includes(select);
+      } );
       return {
         ...state,
         videogames: allVideogamesFilter,
@@ -57,21 +63,41 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case ORDER:
       const allVideogamesOrder = [...state.videogames];
-      if (payload === "A") {
-        allVideogamesOrder.sort((a, b) => a.id - b.id);
+      if (payload === "AscendenteNombre") {
+        allVideogamesOrder.sort((a, b) => a.name.localeCompare(b.name));
       }
-      if (payload === "D") {
-        allVideogamesOrder.sort((a, b) => b.id - a.id);
+      if (payload === "DescendenteNombre") {
+        allVideogamesOrder.sort((a, b) => b.name.localeCompare(a.name));
       }
       return {
         ...state,
         videogames: allVideogamesOrder,
       };
+      
+      case RATING:
+        const allVideogamesRating = [...state.videogames];
+       if (payload === "0-1") {
+         allVideogamesRating.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+       }
+       if (payload === "2-3") {
+         allVideogamesRating.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+       }
+       if (payload === "3-4") {
+         allVideogamesRating.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+       }
+        if (payload === "4-5") {
+          allVideogamesRating.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+        }
+       return {
+         ...state,
+         videogames: allVideogamesRating,
+       };
+
 
     case RESET:
       return {
         ...state,
-        videogames: payload,
+        videogames: state.allVideogames,
       };
 
     default:

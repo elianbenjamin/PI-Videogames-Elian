@@ -2,11 +2,13 @@ import {
   FILTER,
   ORDER,
   RESET,
+  RATING,
   ALL_GAMES,
   DETAIL_GAMES,
   CREATE_GAMES,
   VIDEOGAMES_NAME,
-  CLEAN_DETAIL
+  CLEAN_DETAIL,
+ 
 } from "./action-types";
 import axios from "axios";
 
@@ -74,16 +76,23 @@ export const cleanDetail = () =>({
   type: CLEAN_DETAIL,
 })
 
-export const filterVideogames = (videogame) => {
+
+
+export const filterVideogames = (select) => {
   return {
     type: FILTER,
-    payload: videogame,
+    payload: select,
   };
 };
 
 export const orderVideogames = (order) => {
   return { type: ORDER, payload: order };
 };
+
+export const ratingVideogames = (rating) => {
+  return { type: RATING, payload: rating };
+};
+
 
 export const resetVideogames = () => {
   return {

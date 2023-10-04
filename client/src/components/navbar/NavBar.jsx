@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './NavBar.module.css'
 import SearchBar from '../searchBar/SearchBar';
+import Filter from "../filter/Filter";
+import Order from "../order/Order";
+import Reset from "../reset/Reset";
+import Rating from '../rating/Rating';
+
+
 
 import { NavLink } from 'react-router-dom';
 
@@ -19,9 +25,16 @@ const NavBar = () => {
                 <span className={styles.logoName}>ebrr</span>
                 
             </div>
+            <Filter />
+            <Order/>
+            <Rating />
+            <Reset/>
             <NavLink to={'/creategames'}>
             <button className={styles.btn}>Create Games</button>
             </NavLink>
+            
+           
+           
             <SearchBar />
             
             

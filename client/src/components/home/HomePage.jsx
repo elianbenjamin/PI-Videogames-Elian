@@ -4,12 +4,13 @@ import Pagination from "../pagination/Pagination";
 import Card from "../card/Card";
 import { useSelector, useDispatch } from "react-redux";
 import {getAllVideogames} from "../../redux/action"
+import Footer from "../footer/Footer";
 
 
 
 
 const HomePage = () => {
-
+  
   const [pagina, setPagina] = useState(1)       //
   const [porPagina, setPorPagina] = useState(10)   //
  
@@ -46,7 +47,8 @@ const HomePage = () => {
       )}
       <br /> 
       
-<Pagination  pagina={pagina}  setPagina={setPagina} maximo={maximo}/>
+      <Pagination  pagina={pagina}  setPagina={setPagina} maximo={maximo}/>
+      <Footer/>
     </div>
 
   );

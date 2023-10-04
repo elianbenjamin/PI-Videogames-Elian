@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import styles from '../searchBar/SearchBar.module.css'
 import {  NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getVideogamesName } from '../../redux/action';
+import {  getVideogamesName } from '../../redux/action';
+
 
 
 
@@ -19,6 +20,8 @@ const SearchBar = () => {
       event.preventDefault();
       dispatch(getVideogamesName(searchTerm));
     };
+
+ 
   
     return (
       <div className={styles.container1}>

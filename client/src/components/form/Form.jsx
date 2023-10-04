@@ -4,11 +4,15 @@ import { createVideogames } from "../../redux/action";
 import NavBar from "../navbar/NavBar";
 import styles from "./Form.module.css"
 import validation from "../../helpers/validation";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
 
 const Form = () => {
+  const navigate = useNavigate()
     const dispatch = useDispatch()
 /* const { name, description, platforms, background_image, released, rating, genres } = req.body; */
     const [games, setGames] = useState({
@@ -52,10 +56,31 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(createVideogames(games))
+        
+        if (isFormInvalid()) {
+          alert('Tu formulario está incompleto, por favor llena todos los campos');
+        } else {
+          
+      dispatch(createVideogames(games))
+          alert('¡Tu formulario se envió con éxito!');
+          
+          setGames({
+            name: '',
+            background_image: '',
+            description: '',
+            genres: '',
+            platforms: '',
+            rating: '',
+            released: ''
+          });
+          navigate('/home')
+        }
     }
     
-  
+    const isFormInvalid = () => {
+      return Object.values(games).some((value) => value === '');
+    };
+    
 
   return (
     <>
@@ -105,8 +130,9 @@ const Form = () => {
         <input className={styles.input} id="genres" type="text" name='genres' placeholder="Ingrese los géneros separados por comas"value={games.genres.toString()} onChange={handleChange}/>
         {error.genres && <p>{error.genres}</p>}
       </div>
-
+    
       <button className={styles.button} type="submit" onClick={handleSubmit}>Crear videoGames</button>
+      
       </form>
     </div>
   </>

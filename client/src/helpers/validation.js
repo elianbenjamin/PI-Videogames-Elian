@@ -17,12 +17,25 @@ if((!/^(http|https):\/\/[^ "]+$/.test(error.background_image))){
 if((!/^[a-zA-Z0-9\s.,!?()-]*$/.test(error.description))){
     errors.description = "La descripcion no es válida"
 }
+if(error.description < 5){
+    errors.description = "La descripcion es muy corta"
+}
    if((!/^(0([.]\d+)?|([1-4]([.]\d+)?)|(5([.]0)?))$/.test(error.rating))){
     errors.rating = 'Debe ser decimal entre 0.0-5.0'
    }
-if((!/,/.test(error.platforms))){
-    error.platforms = 'Tienes que separarlos por coma.'
+if((/[^a-zA-Z0-9\s]+/.test(error.platforms))){
+    errors.platforms = 'Caracteres inválidos'
 }
+if((!/[ ,]/.test(error.platforms))){
+    errors.platforms = 'Separalos por coma.'
+}
+if((/[^a-zA-Z0-9\s]+/.test(error.genres))){
+    errors.genres = 'Caracteres inválidos'
+}
+if((!/[ ,]/.test(error.genres))){
+    errors.genres= 'Separalos por coma.'
+}
+
    return errors
 }
 
