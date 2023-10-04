@@ -1,10 +1,12 @@
 /* Footer.module.css */
 .footer {
-    background-color: #333;
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0.15) 0%, rgba(249, 249, 249, 0.03) 100%);
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    box-shadow: 5px 5px 10px 0px #0000001A;
   }
+ 
   
   .footerContent {
     max-width: 960px;
@@ -13,9 +15,12 @@
 .img{
     width: 30px;
     height: 30px;
+    margin: 5px;
 }  
 .img2{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
     background-color: azure;
+    border-radius: 3px;
 }

@@ -14,7 +14,7 @@ const Footer = () => {
         </NavLink> 
 
         <NavLink to={'https://github.com/elianbenjamin'} target="_blank">
-        <img  className={styles.img2} src="https://imgs.search.brave.com/02QveII2-i3xrgkrveOmmzkH8Dl_X4V22-UiOQIECDg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly8xMDAw/bWFyY2FzLm5ldC93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMC8w/Mi9sb2dvLUdpdEh1/Yi01MDB4MjgxLnBu/Zw" alt="" />
+        <img  className={styles.img2} src="https://github.com/fluidicon.png" alt="" />
         </NavLink>
 
       </div>
