@@ -110,7 +110,7 @@ const Form = () => {
 
       <div className={styles.inputPlatforms}>
         <label className={styles.label} htmlFor="platforms" >Platforms: </label>
-        <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="Ingrese las plataformas separadas por comas" value={games.platforms.toString()} onChange={handleChange}/>
+        <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="por ej. Xbox, PlayStation...." value={games.platforms.toString()} onChange={handleChange}/>
         {error.platforms && <p>{error.platforms}</p>}
       </div>
       <div className={styles.inputReleased}>
@@ -127,7 +127,7 @@ const Form = () => {
 
       <div className={styles.inputGenres}>
         <label className={styles.label} htmlFor="genres" >Genres: </label>
-        <input className={styles.input} id="genres" type="text" name='genres' placeholder="Ingrese los géneros separados por comas"value={games.genres.toString()} onChange={handleChange}/>
+        <input className={styles.input} id="genres" type="text" name='genres' placeholder="por ej. Action, Adventure..."value={games.genres.toString()} onChange={handleChange}/>
         {error.genres && <p>{error.genres}</p>}
       </div>
     

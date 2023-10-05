@@ -3,18 +3,25 @@ const { Videogame, Genre } = require("../db");
 
 const getGame = async (_req, res) => {
   try {
-    const limit = 60;
+    const limit = 100;
 
-    const [videogamesDb, videogamesApi] = await Promise.all([
+    const [videogamesDb,videogamesApiFirstPage, videogamesApiSecondPage, videogamesApiThirdPage] = await Promise.all([
       Videogame.findAll({ include:  Genre }),
       axios.get(
-        `https://api.rawg.io/api/games?key=91fecabb447e4d87bd14d72b6901ca7c&page_size=${limit}`
+        `https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page_size=${limit}`
       ),
+      axios.get(`https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page=2&page_size=${limit}`
+      ),
+      axios.get(`https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page=3`
+      )
+      
     ]);
+
+
 
     const allVideogames = [
       ...videogamesDb,
-      ...videogamesApi.data.results.map((allVideogame) => ({
+      ...videogamesApiFirstPage.data.results.map((allVideogame) => ({
         id: allVideogame.id,
         name: allVideogame.name,
         description: allVideogame?.description || "No description available",
@@ -26,7 +33,33 @@ const getGame = async (_req, res) => {
         rating: allVideogame.rating,
         genres: allVideogame.genres?.map((genre) => genre.name) || [],
       })),
+      ...videogamesDb,
+      ...videogamesApiSecondPage.data.results.map((allVideogame) => ({
+        id: allVideogame.id,
+        name: allVideogame.name,
+        description: allVideogame?.description || "No description available",
+        platforms:
+          allVideogame.platforms?.map((platform) => platform.platform.name) || [],
+        background_image: allVideogame.background_image,
+        released: allVideogame.released,
+        rating: allVideogame.rating,
+        genres: allVideogame.genres?.map((genre) => genre.name) || [],
+      })),
+      ...videogamesDb,
+      ...videogamesApiThirdPage.data.results.map((allVideogame) => ({
+        id: allVideogame.id,
+        name: allVideogame.name,
+        description: allVideogame?.description || "No description available",
+        platforms:
+          allVideogame.platforms?.map((platform) => platform.platform.name) || [],
+        background_image: allVideogame.background_image,
+        released: allVideogame.released,
+        rating: allVideogame.rating,
+        genres: allVideogame.genres?.map((genre) => genre.name) || [],
+      })),
+     
     ];
+    
     return res.send(allVideogames);
   } catch (error) {
     res.status(400).json({ error: error.message });

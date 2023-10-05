@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React  from "react";
 import styles from "./Rating.module.css";
 import { useDispatch } from "react-redux";
 import { ratingVideogames } from "../../redux/action";
@@ -6,12 +6,12 @@ import { ratingVideogames } from "../../redux/action";
 
 const Rating = () => {
 const dispatch = useDispatch()
-const [aux, setAux] = useState(false);
+
 
 const handlerRating = (event) => {
     const rating = event.target.value
-    setAux(rating)
     dispatch(ratingVideogames(rating))
+   
 }
 
 
@@ -21,18 +21,13 @@ const handlerRating = (event) => {
         <option className={styles.option} value="Rating">
           Rating
         </option>
-        <option className={styles.option} value="0-1">
-          ★☆☆☆☆ 
+        <option className={styles.option} value="AscRating">
+        ★★★★☆ 
         </option>
-        <option className={styles.option} value="1-2">
-          ★★☆☆☆ 
+        <option className={styles.option} value="DescRating">
+        ★★☆☆☆ 
         </option>
-        <option className={styles.option} value="2-3">
-          ★★★☆☆ 
-        </option>
-        <option className={styles.option} value="4-5">
-          ★★★★☆ 
-        </option>
+        
       </select>
     </div>
   );
