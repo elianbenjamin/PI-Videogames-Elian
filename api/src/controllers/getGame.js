@@ -6,7 +6,17 @@ const getGame = async (_req, res) => {
     const limit = 100;
 
     const [videogamesDb,videogamesApiFirstPage, videogamesApiSecondPage, videogamesApiThirdPage] = await Promise.all([
-      Videogame.findAll({ include:  Genre }),
+      Videogame.findAll({   include: {
+        model: Genre,
+        as: 'genres',
+        attributes: ['name'],
+        through: {
+          attributes: []
+        },
+        order: [
+          ['ASC']
+        ],
+      }, }),
       axios.get(
         `https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page_size=${limit}`
       ),
@@ -16,11 +26,14 @@ const getGame = async (_req, res) => {
       )
       
     ]);
-
+    const dbGenres = videogamesDb.map((game) => ({
+      ...game.toJSON(),
+      genres: game.genres.map((genre) => genre.name),
+    }));
 
 
     const allVideogames = [
-      ...videogamesDb,
+      ...dbGenres,
       ...videogamesApiFirstPage.data.results.map((allVideogame) => ({
         id: allVideogame.id,
         name: allVideogame.name,
@@ -33,7 +46,7 @@ const getGame = async (_req, res) => {
         rating: allVideogame.rating,
         genres: allVideogame.genres?.map((genre) => genre.name) || [],
       })),
-      ...videogamesDb,
+      ...dbGenres,
       ...videogamesApiSecondPage.data.results.map((allVideogame) => ({
         id: allVideogame.id,
         name: allVideogame.name,
@@ -44,8 +57,9 @@ const getGame = async (_req, res) => {
         released: allVideogame.released,
         rating: allVideogame.rating,
         genres: allVideogame.genres?.map((genre) => genre.name) || [],
+      
       })),
-      ...videogamesDb,
+      ...dbGenres,
       ...videogamesApiThirdPage.data.results.map((allVideogame) => ({
         id: allVideogame.id,
         name: allVideogame.name,
@@ -70,47 +84,4 @@ module.exports = {
   getGame,
 };
 
-/* const axios = require('axios');
-const { Videogame } = require('../db');
 
-const getGame = async (req, res) => {
-  try {
-    // Definimos la cantidad de videojuegos que queremos obtener de la API
-    const numberOfGames = 30;
-
-    // Realizamos la petición a la API de RAWG
-    const response = await axios.get(`https://api.rawg.io/api/games?key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page_size=${numberOfGames}`);
-
-    // Obtenemos los videojuegos desde la respuesta de la API
-    const gamesData = response.data.results;
-
-    // Mapeamos los videojuegos para crear un arreglo de objetos que se ajusten a nuestro modelo
-    let gamesToDb = gamesData.map(game => ({
-      id: game.id,
-      name: game.name,
-      description: game.description,
-      platforms: game.platforms.map(platform => platform.platform.name),
-      background_image: game.background_image,
-      released: game.released,
-      rating: game.rating,
-    }));
-
-    // Guardamos los videojuegos en la base de datos
-    for(let game of gamesToDb) {
-      await Videogame.findOrCreate({
-        where: { id: game.id },
-        defaults: game
-      });
-    }
-
-    // Enviar una respuesta exitosa
-    res.status(200).json({ message: "Videogames successfully stored in DB." });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "There was a problem with the request." });
-  }
-};
-
-module.exports = {
-  getGame,
-}; */

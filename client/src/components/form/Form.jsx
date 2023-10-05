@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const Form = () => {
   const navigate = useNavigate()
     const dispatch = useDispatch()
-/* const { name, description, platforms, background_image, released, rating, genres } = req.body; */
+
     const [games, setGames] = useState({
         name: "",
         background_image:"",

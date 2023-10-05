@@ -51,7 +51,7 @@ const Pagination = ({ pagina, setPagina, maximo }) => {
         autoComplete="off"
         value={input}
       />
-      <p className={styles.p}>de {Math.ceil(maximo)}</p>
+      <p className={styles.p}>of {Math.ceil(maximo)}</p>
       <button
         className={styles.button}
         disabled={pagina === Math.ceil(maximo) || pagina > Math.ceil(maximo)}

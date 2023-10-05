@@ -34,23 +34,3 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 
 module.exports = server;
 
-
-
-
-
-
-
-
-
-
-/* 
-*cookie-parser: es un middleware que se utiliza para analizar las cookies incluidas en las solicitudes HTTP que llegan al servidor. Las cookies se utilizan comúnmente para mantener el estado de la sesión del usuario, rastrear la información del usuario y realizar otras tareas de seguimiento o autenticación.
-
-*ayuda a tu aplicación Node.js a analizar las cookies que llegan con las solicitudes HTTP, convirtiéndolas en un objeto JavaScript fácil de manejar. De esta manera, puedes acceder a las cookies enviadas por el cliente y tomar decisiones basadas en su contenido.
-
-
-?bodyParser: s un middleware que se utiliza comúnmente en aplicaciones web Node.js para procesar los cuerpos de las solicitudes HTTP, especialmente en el contexto de solicitudes POST y PUT.
-
-todo: morgan, se utiliza para registrar (log) información sobre las solicitudes HTTP que llegan al servidor, lo que facilita el seguimiento y la depuración de las solicitudes entrantes en una aplicación web. Puede registrar detalles como la URL, el método HTTP, el código de estado de respuesta y otros datos relacionados con las solicitudes y respuestas HTTP.
-
-*/

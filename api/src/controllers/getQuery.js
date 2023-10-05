@@ -1,12 +1,19 @@
 const axios = require("axios");
 const { Videogame, Genre } = require("../db");
+const { Op } = require("sequelize");
 
 const getQuery = async (req, res) => {
   try {
     const { name } = req.query;
 
+    const lowercaseName = name.toLowerCase();
+    
     const videogamesDb = await Videogame.findAll({
-      where: { name },
+      where: {
+         name: {
+          [Op.iLike]: `%${lowercaseName}%`
+         }
+         },
       include: Genre,
     });
     if (videogamesDb.length) {
@@ -24,14 +31,18 @@ const getQuery = async (req, res) => {
         },
       }
     );
-    if (videogamesApi.data.results.length === 0) {
-      throw new Error("No videogame found");
+    const apiResults = videogamesApi.data.results;
+
+    if (apiResults.length === 0) {
+      
+      res.status(200).json({ message: "No se encontraron videojuegos con ese nombre" });
     } else {
-      res.status(200).send(videogamesApi.data.results);
-      return; 
+      
+      res.status(200).send(apiResults);
     }
   } catch (error) {
-    res.status(403).json({ error: 'El videojuego con ese nombre no fue encontrado' });
+
+    res.status(403).json({ error: error.message });
   }
 };
 

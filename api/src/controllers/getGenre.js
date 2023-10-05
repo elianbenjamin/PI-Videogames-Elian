@@ -4,7 +4,8 @@ const { Genre } = require("../db");
 
 const getGenre = async (_req, res) => {
   try {
-    let genresDb = await Genre.findAll();
+    let genresDb = await Genre.findAll();  
+    console.log('generos desde la base de datos',genresDb )
 
     // Si no hay géneros en la BD, la llenamos con géneros desde la API
     if (!genresDb.length) {
