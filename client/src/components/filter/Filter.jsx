@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { filterVideogames } from '../../redux/action';
 import { useDispatch } from 'react-redux';
 import styles from './Filter.module.css'
+import { updateFilter } from '../../redux/action';
 
 const Filter = () => {
 
     const dispatch = useDispatch()
     const [_select, setSelect] = useState('')
 
-    const handlerFilter = (event) =>{
+    const handlerFilter = (event) => {
         const genre = event.target.value;
         setSelect(genre);
-        dispatch(filterVideogames(genre));
-    }
+        dispatch(updateFilter('genre', genre));
+      };
     return (
         <div className={styles.container}>
            <select className={styles.select} name="genres" id="genres" onChange={handlerFilter}>

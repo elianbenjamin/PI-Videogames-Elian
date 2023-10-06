@@ -1,8 +1,6 @@
 import {
   FILTER,
-  ORDER,
   RESET,
-  RATING,
   ALL_GAMES,
   DETAIL_GAMES,
   CREATE_GAMES,
@@ -76,23 +74,12 @@ export const cleanDetail = () =>({
   type: CLEAN_DETAIL,
 })
 
-
-
-export const filterVideogames = (select) => {
+export const updateFilter = (filterType, value) => {
   return {
     type: FILTER,
-    payload: select,
+    payload: { filterType, value },
   };
 };
-
-export const orderVideogames = (order) => {
-  return { type: ORDER, payload: order };
-};
-
-export const ratingVideogames = (rating) => {
-  return { type: RATING, payload: rating };
-};
-
 
 export const resetVideogames = () => {
   return {

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { orderVideogames } from '../../redux/action';
 import styles from './Order.module.css'
+import { updateFilter } from '../../redux/action';
 
 const Order = () => {
     
     const dispatch = useDispatch()
-    const [aux, setAux] = useState(false);
+    
 
 
-    const handleOrder = (event) =>{
-        dispatch(orderVideogames(event.target.value))
-        setAux(!aux)
-    }
+    const handleOrder = (event) => {
+        const order = event.target.value;
+        dispatch(updateFilter('order', order));
+      };
 
     return (
         <div>

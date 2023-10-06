@@ -1,7 +1,7 @@
 import React  from "react";
 import styles from "./Rating.module.css";
 import { useDispatch } from "react-redux";
-import { ratingVideogames } from "../../redux/action";
+import { updateFilter } from '../../redux/action';
 
 
 const Rating = () => {
@@ -9,10 +9,9 @@ const dispatch = useDispatch()
 
 
 const handlerRating = (event) => {
-    const rating = event.target.value
-    dispatch(ratingVideogames(rating))
-   
-}
+  const rating = event.target.value;
+  dispatch(updateFilter('rating', rating));
+};
 
 
   return (

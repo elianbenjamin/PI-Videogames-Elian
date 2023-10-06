@@ -5,5 +5,4 @@ export const VIDEOGAMES_NAME = 'VIDEOGAMES_NAME'
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const FILTER = 'FILTER';
 export const RESET = 'RESET';
-export const ORDER = 'ORDER';
-export const RATING = 'RATING'
+

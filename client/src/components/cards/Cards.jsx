@@ -4,16 +4,17 @@ import styles from './Cards.module.css';
 
 const Cards = ({ videogames }) => {
     console.log('videogames',videogames)
+    
   return (
     <div className={styles.div}>
       {videogames?.map(({ id, name, platforms, background_image, genres }) => (
-        <div className={styles.container} key={id}>
+        <div className={styles.container} key={id }>
           <Card
-            id={id}
-            name={name}
+            id={id} 
+            name={name}      
             platforms={platforms}
             background_image={background_image}
-            genres={genres}
+            genres={genres} 
           />
         </div>
       ))}
