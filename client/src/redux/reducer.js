@@ -58,9 +58,9 @@ const reducer = (state = initialState, { type, payload }) => {
       let filters = { ...state.filters, [filterType]: value };
       let filteredResult = [...state.allVideogames];
 
-      if(filters.source == 'API'){
+      if(filters.source === 'API'){
         filteredResult = filteredResult.filter((game)=> typeof game.id === 'number' )
-      }else if(filters.source == 'DB'){
+      }else if(filters.source === 'DB'){
         filteredResult = filteredResult.filter((game)=> typeof game.id === 'string' )
 
       }

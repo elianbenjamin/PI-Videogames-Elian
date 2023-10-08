@@ -36,7 +36,7 @@ const Form = () => {
       if (event.target.name === 'platforms' || event.target.name === 'genres') {
         setGames({
           ...games,
-          [event.target.name]: event.target.value.split(',')//verificar que se separen
+          [event.target.name]: event.target.value.replace(/\s*,\s*/g, ',').split(',')
         })
       } else{
         setGames({
@@ -106,7 +106,7 @@ const Form = () => {
 
       <div className={styles.inputPlatforms}>
         <label className={styles.label} htmlFor="platforms" >Platforms: </label>
-        <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="por ej. Xbox, PlayStation...." value={games.platforms.toString()} onChange={handleChange}/>
+        <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="por ej. Xbox, PlayStation...." value={games.platforms.join(', ')} onChange={handleChange}/>
         {error.platforms && <p>{error.platforms}</p>}
       </div>
       <div className={styles.inputReleased}>
@@ -123,7 +123,7 @@ const Form = () => {
 
       <div className={styles.inputGenres}>
         <label className={styles.label} htmlFor="genres" >Genres: </label>
-        <input className={styles.input} id="genres" type="text" name='genres' placeholder="por ej. Action, Adventure..."value={games.genres.toString()} onChange={handleChange}/>
+        <input className={styles.input} id="genres" type="text" name='genres' placeholder="por ej. Action, Adventure..."value={games.genres.join(', ')} onChange={handleChange}/>
         {error.genres && <p>{error.genres}</p>}
       </div>
     
