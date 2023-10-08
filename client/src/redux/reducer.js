@@ -17,6 +17,7 @@ const initialState = {
     genre: '',      // Filtro de género
     order: 'name',  // Orden predeterminado por nombre
     rating: '',     // Filtro de calificación
+    source: ''
   },
 };
 
@@ -52,10 +53,24 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
     case FILTER:
-      const { filterType, value } = payload;
-      const filters = { ...state.filters, [filterType]: value };
+      const { filterType, value} = payload;
 
+      let filters = { ...state.filters, [filterType]: value };
       let filteredResult = [...state.allVideogames];
+
+      if(filters.source == 'API'){
+        filteredResult = filteredResult.filter((game)=> typeof game.id === 'number' )
+      }else if(filters.source == 'DB'){
+        filteredResult = filteredResult.filter((game)=> typeof game.id === 'string' )
+
+      }
+
+
+      if(filterType === 'order'){
+        filters = {...filters, rating: ''};
+      }else if (filterType === 'rating') {
+        filters = {...filters, order: 'name'};
+      }
 
       // Aplicar filtros
       if (filters.genre) {

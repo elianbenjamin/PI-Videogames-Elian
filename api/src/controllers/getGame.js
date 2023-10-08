@@ -3,10 +3,9 @@ const { Videogame, Genre } = require("../db");
 
 const getGame = async (_req, res) => {
   try {
-    const limit = 120;
+    const limit = 25;
 
-    const pages = [1, 2, 3]; // las páginas que deseas obtener
-    
+    const pages = [1, 2, 3, 4]; 
     const videogamesDbPromise = Videogame.findAll({   
         include: {
             model: Genre,

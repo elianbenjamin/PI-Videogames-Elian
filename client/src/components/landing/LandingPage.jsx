@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import styles from "../landing/Landing.module.css" 
 import {  useNavigate } from 'react-router-dom';
 
@@ -7,22 +7,9 @@ import {  useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
 
-    const [hora, setHora] = useState('');/* reloj */
-
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        const fecha = new Date();
-        const horaActual = `${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`;
-        setHora(horaActual);
-      }, 1000);
-  
-      // Limpia el intervalo cuando el componente se desmonta
-      return () => clearInterval(intervalId);
-    }, []); /* reloj */
-
-    
 
     const navigate = useNavigate()
+    
     return (
         <div className={styles.div}>
            <section className={styles.seccion}>
@@ -36,10 +23,7 @@ const LandingPage = () => {
             
            <button className={styles.btn} onClick={() => navigate('/home')}>Start...</button>
           
-            <div className={styles.hora}>{/* reloj */}
-                <span>{hora}</span>
-            </div>{/* reloj */}
-
+          
 
             </div>
            </section>

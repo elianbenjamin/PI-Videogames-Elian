@@ -6,7 +6,7 @@ import { updateFilter } from '../../redux/action';
 const Filter = () => {
 
     const dispatch = useDispatch()
-    const [_select, setSelect] = useState('')
+    const [select, setSelect] = useState('')
 
     const handlerFilter = (event) => {
         const genre = event.target.value;
@@ -15,7 +15,8 @@ const Filter = () => {
       };
     return (
         <div className={styles.container}>
-           <select className={styles.select} name="genres" id="genres" onChange={handlerFilter}>
+           <select className={styles.select} name="genres" id="genres" onChange={handlerFilter} value={select}>
+           <option className={styles.option} value="">By genre</option>
             <option className={styles.option} value="Action">Action</option>
             <option className={styles.option} value="Indie">Indie</option>
             <option className={styles.option} value="Adventure">Adventure</option>

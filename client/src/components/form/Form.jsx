@@ -7,10 +7,6 @@ import validation from "../../helpers/validation";
 import { useNavigate } from "react-router-dom";
 
 
-
-
-
-
 const Form = () => {
   const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -40,7 +36,7 @@ const Form = () => {
       if (event.target.name === 'platforms' || event.target.name === 'genres') {
         setGames({
           ...games,
-          [event.target.name]: event.target.value.split(',')
+          [event.target.name]: event.target.value.split(',')//verificar que se separen
         })
       } else{
         setGames({

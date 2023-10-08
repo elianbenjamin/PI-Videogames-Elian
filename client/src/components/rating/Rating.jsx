@@ -1,32 +1,37 @@
-import React  from "react";
+import React, { useState } from "react";
 import styles from "./Rating.module.css";
 import { useDispatch } from "react-redux";
-import { updateFilter } from '../../redux/action';
-
+import { updateFilter } from "../../redux/action";
 
 const Rating = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
+  const [orderRating, setOrderRating] = useState('')
 
-const handlerRating = (event) => {
-  const rating = event.target.value;
-  dispatch(updateFilter('rating', rating));
-};
-
+  const handlerRating = (event) => {
+    const rating = event.target.value;
+    setOrderRating(rating)
+    dispatch(updateFilter("rating", rating));
+  };
 
   return (
     <div>
-      <select className={styles.select} name="Rating" id="Rating" onChange={handlerRating}>
-        <option className={styles.option} value="Rating">
-          Rating
+      <select
+        className={styles.select}
+        name="Rating"
+        id="Rating"
+        onChange={handlerRating}
+        value={orderRating}
+      >
+        <option className={styles.option} value="">
+         By Rating
         </option>
         <option className={styles.option} value="AscRating">
-        ★★★★☆ 
+          ★★★★☆
         </option>
         <option className={styles.option} value="DescRating">
-        ★★☆☆☆ 
+          ★★☆☆☆
         </option>
-        
       </select>
     </div>
   );

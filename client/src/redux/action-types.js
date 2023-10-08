@@ -6,3 +6,5 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const FILTER = 'FILTER';
 export const RESET = 'RESET';
 
+
+

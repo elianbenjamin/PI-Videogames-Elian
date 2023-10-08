@@ -5,15 +5,8 @@ import Filter from "../filter/Filter";
 import Order from "../order/Order";
 import Reset from "../reset/Reset";
 import Rating from '../rating/Rating';
-
-
-
 import { NavLink } from 'react-router-dom';
-
-
-
-
-
+import FilterSource from '../filterSource/FilterSource';
 
 const NavBar = () => {
     return (
@@ -28,6 +21,7 @@ const NavBar = () => {
             <Filter />
             <Order/>
             <Rating />
+            <FilterSource/>
             <Reset/>
             <NavLink to={'/creategames'}>
             <button className={styles.btn}>Create Games</button>

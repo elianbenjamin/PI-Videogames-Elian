@@ -4,25 +4,18 @@ import LandingPage from './components/landing/LandingPage';
 import HomePage from './components/home/HomePage';
 import DetailSmart from './components/detail/DetailSmart';
 import Form from './components/form/Form';
-
-
-
+import ErrorPage from './components/errorPage/ErrorPage';
 
 
 
 function App() {
 
 
-
   return (
     <div className="App">
 
-    {/*  {
-      !isHome && (<NavBar />) 
-     } */}
-     {/* para que no se muestre mi landing  */}
-
      <Routes>
+      <Route path='*' element={<ErrorPage/>} />
       <Route path='/detail/:detailId' element={<DetailSmart  />}/>
       <Route path='/home' element={<HomePage />}/>
       <Route path='/creategames' element={<Form /> } />

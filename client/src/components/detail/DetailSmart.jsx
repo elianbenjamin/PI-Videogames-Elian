@@ -7,8 +7,8 @@ import DetailDumb from "./DetailDumb";
 const DetailSmart = () => {
   const { detailId } = useParams();
   const dispatch = useDispatch();
-  const { videogamesDetail } = useSelector((state) => state);
-  console.log("ssssss", videogamesDetail);
+  const  videogamesDetail  = useSelector((state) => state.videogamesDetail);
+  console.log("soy Detail", videogamesDetail);
 
   useEffect(() => {
     dispatch(getVideogamesDetail(detailId));

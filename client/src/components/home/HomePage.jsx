@@ -8,15 +8,15 @@ import Footer from "../footer/Footer";
 import Loading from "../loading/Loading";
 
 const HomePage = () => {
-  const [pagina, setPagina] = useState(1); //
-  const [porPagina, _setPorPagina] = useState(15); //
+  const [pagina, setPagina] = useState(1); 
+  const [porPagina, _setPorPagina] = useState(15); 
 
   const dispatch = useDispatch();
-  const { videogames } = useSelector((state) => state);
+  const videogames  = useSelector((state) => state.videogames);
   const [loading, setLoading] = useState(true);
-  console.log("heeeeey", videogames);
+  console.log("Todos los juegos", videogames);
 
-  const maximo = videogames.length / porPagina; //
+  const maximo = videogames.length / porPagina; 
 
   useEffect(() => {
     let timeOut;

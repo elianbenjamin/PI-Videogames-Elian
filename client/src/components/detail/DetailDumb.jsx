@@ -24,7 +24,7 @@ const DetailDumb = ({ props }) => {
         <span className={styles.rating}>Rating: {rating}</span>
         <p className={styles.text}>Description: {description}</p>
 
-        <button
+        <button className={styles.btn}
           onClick={() => {
             navigate("/home");
           }}
