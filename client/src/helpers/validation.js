@@ -1,42 +1,37 @@
 const validation = (error) => {
   const errors = {};
 
-  if (!error.name) {
-    errors.name = "Minimo un caracter";
+  if (error.name.length < 2) {
+    errors.name = "Minimum two characters";
   }
-  if (error.name.length > 25) {
-    errors.name = "Maximo 25 caracteres";
+  if (error.name.length > 20) {
+    errors.name = "Maximum 20 characters";
   }
   if (/[^a-zA-Z0-9\s]+/.test(error.name)) {
-    errors.name = "Caracteres inválidos";
+    errors.name = "Invalid characters";
   }
-
   if (!/^(http|https):\/\/[^ "]+$/.test(error.background_image)) {
-    errors.background_image = "La imagen no es una URL válida";
+    errors.background_image = "The image is not a valid URL";
   }
   if (!/^[a-zA-Z0-9\s.,!?()-]*$/.test(error.description)) {
-    errors.description = "La descripcion no es válida";
+    errors.description = "The description is not valid";
   }
-  if (error.description < 5) {
-    errors.description = "La descripcion es muy corta";
+  if (error.description.length < 10) {
+    errors.description = "The description is very short";
   }
   if (!/^(0([.]\d+)?|([1-4]([.]\d+)?)|(5([.]0)?))$/.test(error.rating)) {
-    errors.rating = "Debe ser decimal entre 0.0-5.0";
+    errors.rating = "Must be decimal between 0.0-5.0";
   }
   if (/^[a-zA-Z0-9\s,]*$/.test(error.platforms)) {
   } else {
-    errors.platforms = "La cadena no debe contener símbolos.";
+    errors.platforms = "The string must not contain symbols.";
   }
-  if (error.platforms && !/,/.test(error.platforms)) {
-    errors.platforms = "Separalos por coma.";
-  }
+  
   if (/^[a-zA-Z0-9\s,]*$/.test(error.genres)) {
 } else {
-  errors.genres = "La cadena no debe contener símbolos.";
+  errors.genres = "The string must not contain symbols.";
 }
-if (error.genres && !/,/.test(error.genres)) {
-  errors.genres = "Separalos por coma.";
-}
+
   return errors;
 };
 
