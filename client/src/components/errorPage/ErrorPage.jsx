@@ -1,9 +1,18 @@
 import React from 'react';
+import styles from './ErrorPage.module.css'
+import { NavLink } from "react-router-dom";
+
 
 const ErrorPage = () => {
     return (
-        <div>
-            <img src="https://imgs.search.brave.com/tP3AEo4CjbcZeK1h_az_Lq76kexosGyPKTG_b0s4YWk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZWtpdC5hbmRyb2lk/cGhvcmlhLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMveW9rYS10/YXJvLW51ZXZvLWp1/ZWdvLXBhcmEtbW92/aWxlcy00MDQtR0FN/RS1SRVNFVC02OTZ4/MzQ4LmpwZw"  alt="" />
+        <div className={styles.container}>
+            <img className={styles.img} src="https://imgs.search.brave.com/396As5bq_qjMgO73IosiTtPQWsw7t8WdxX8nBlb6ZoU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDI0MTQ3/MjguanBn"  alt="Elian" />
+
+            <NavLink to={'/home'}>
+
+            <button className={styles.btn}>Home</button>
+            
+            </NavLink>
         </div>
     );
 }
