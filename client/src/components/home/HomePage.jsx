@@ -9,12 +9,13 @@ import Loading from "../loading/Loading";
 
 const HomePage = () => {
   const [pagina, setPagina] = useState(1); 
+  // eslint-disable-next-line
   const [porPagina, _setPorPagina] = useState(15); 
 
   const dispatch = useDispatch();
   const videogames  = useSelector((state) => state.videogames);
   const [loading, setLoading] = useState(true);
-  console.log("Todos los juegos", videogames);
+  
 
   const maximo = videogames.length / porPagina; 
 
@@ -22,10 +23,10 @@ const HomePage = () => {
     let timeOut;
     dispatch(getAllVideogames())
       .then(() => {
-        timeOut = setTimeout(() => setLoading(false), 1000);
+        timeOut = setTimeout(() => setLoading(false), 0);
       })
       .catch(() => {
-        timeOut = setTimeout(() => setLoading(false), 1000);
+        timeOut = setTimeout(() => setLoading(false), 0);
       });
     return () => clearTimeout(timeOut);
   }, [dispatch]);

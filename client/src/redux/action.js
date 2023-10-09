@@ -5,8 +5,6 @@ import {
   DETAIL_GAMES,
   CREATE_GAMES,
   VIDEOGAMES_NAME,
-  CLEAN_DETAIL,
- 
 } from "./action-types";
 import axios from "axios";
 
@@ -14,7 +12,6 @@ export const getAllVideogames = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3001/videogames");
-      console.log('dataa videogames',response)
       if (!response) throw Error("errooooooor");
       dispatch({
         type: ALL_GAMES,
@@ -70,9 +67,9 @@ export const createVideogames = (games) => {
   };
 };
 
-export const cleanDetail = () =>({
+/* export const cleanDetail = () =>({
   type: CLEAN_DETAIL,
-})
+}) */
 
 export const updateFilter = (filterType, value) => {
   return {

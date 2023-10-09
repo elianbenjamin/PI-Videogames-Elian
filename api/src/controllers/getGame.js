@@ -51,10 +51,10 @@ const getGame = async (_req, res) => {
 
     const allVideogames = [
       ...dbGenres,
-      ...allApiVideogames, 
+      ...allApiVideogames,  
     ];
     
-    return res.send(allVideogames);
+    return res.send(allVideogames); //status(200)
     
   } catch (error) {
     res.status(400).json({ error: error.message });

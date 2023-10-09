@@ -11,7 +11,7 @@ const getGenre = async (_req, res) => {
     if (!genresDb.length) {
         const genresApi = await axios.get('https://api.rawg.io/api/genres?key=c0b6dc79f407436cbcf3ca1f02d1e6a8');
         genresDb = await Genre.bulkCreate(genresApi.data.results);
-        console.log('acaaa weyyy', genresApi);
+        
     }
 
     res.send(genresDb);

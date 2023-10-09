@@ -20,7 +20,7 @@ const Form = () => {
         rating: "",
         genres: []
     })
-    console.log('estado local', games)
+   
 
     const [error, setError] = useState({
       name: "",
@@ -127,7 +127,7 @@ const Form = () => {
         {error.genres && <p>{error.genres}</p>}
       </div>
     
-      <button className={styles.button} type="submit" onClick={handleSubmit}>Crear videoGames</button>
+      <button className={styles.button} type="submit" onClick={handleSubmit}>Create videoGames</button>
       
       </form>
     </div>

@@ -46,16 +46,3 @@ module.exports = {
 
 
 
-
-
-
-
-
-
-
-
-
-/* 
-? fs : se utiliza en JavaScript para importar el módulo fs, que es un módulo incorporado de Node.js. El nombre fs es una abreviatura de "File System" (Sistema de Archivos) y proporciona una API para interactuar con el sistema de archivos del sistema operativo en el que se ejecuta tu aplicación Node.js.
-
-*/
