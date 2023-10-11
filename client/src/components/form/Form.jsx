@@ -53,8 +53,10 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         
-        if (isFormInvalid()) {
-          alert('Tu formulario está incompleto, por favor llena todos los campos');
+        const hasErrors = Object.values(error).some((errorMessage)=> errorMessage !== '')
+
+        if (isFormInvalid() || hasErrors) {
+          alert('Tu formulario está incompleto o contiene errores de validación. Por favor, verifica los campos.');
         } else {
           
       dispatch(createVideogames(games))

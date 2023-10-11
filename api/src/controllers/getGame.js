@@ -35,7 +35,7 @@ const getGame = async (_req, res) => {
       genres: game.genres.map((genre) => genre.name),
     }));
 
-    // Une todos los resultados de la API en una sola matriz
+    
     const allApiVideogames = apiResults.flatMap(({ data: { results }}) => 
       results.map((game) => ({
         id: game.id,

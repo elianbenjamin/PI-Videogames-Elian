@@ -19,8 +19,8 @@ const validation = (error) => {
   if (error.description.length < 10) {
     errors.description = "The description is very short";
   }
-  if (!/^(0([.]\d+)?|([1-4]([.]\d+)?)|(5([.]0)?))$/.test(error.rating)) {
-    errors.rating = "Must be decimal between 0.0-5.0";
+  if (!/^(1(\.0)?|[2-4](\.\d+)?|5(\.0)?)$/.test(error.rating)) {
+    errors.rating = "Must be decimal between 1.0-5.0";
   }
   if (/^[a-zA-Z0-9\s,]*$/.test(error.platforms)) {
   } else {
