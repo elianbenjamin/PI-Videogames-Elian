@@ -10,26 +10,44 @@ const validation = (error) => {
   if (/[^a-zA-Z0-9\s]+/.test(error.name)) {
     errors.name = "Invalid characters";
   }
+
+
   if (!/^(http|https):\/\/[^ "]+$/.test(error.background_image)) {
     errors.background_image = "The image is not a valid URL";
   }
+
+
   if (!/^[a-zA-Z0-9\s.,!?()-]*$/.test(error.description)) {
     errors.description = "The description is not valid";
   }
   if (error.description.length < 10) {
     errors.description = "The description is very short";
   }
+
+
   if (!/^(1(\.0)?|[2-4](\.\d+)?|5(\.0)?)$/.test(error.rating)) {
-    errors.rating = "Must be decimal between 1.0-5.0";
+    errors.rating = "Must be decimal between 1-5";
   }
-  if (/^[a-zA-Z0-9\s,]*$/.test(error.platforms)) {
-  } else {
-    errors.platforms = "The string must not contain symbols.";
+
+
+  if (error.platforms.length < 1) {
+    errors.platforms = "Minimun one platforms";
   }
-  
-  if (/^[a-zA-Z0-9\s,]*$/.test(error.genres)) {
-} else {
-  errors.genres = "The string must not contain symbols.";
+
+  if (error.released) {
+    const currentDate = new Date();
+    const selectedDate = new Date(error.released);
+    if (selectedDate > currentDate) {
+      errors.released = "The release date cannot be in the future";
+    }
+  }
+
+  if (error.genres.length < 1) {
+    errors.genres = "Minimun one genres";
+  }
+
+if(error.videogames.some((game)=> game.name === error.name)){
+  errors.name = 'There is already a videogame with that name'
 }
 
   return errors;

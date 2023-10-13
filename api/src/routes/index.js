@@ -6,6 +6,8 @@ const { postGame } = require('../controllers/postGame');
 const { getGenre } = require('../controllers/getGenre');
 
 
+
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -20,6 +22,7 @@ router.get('/videogames/name', getQuery)
 router.get('/videogames/:idVideogame', getGameId)
 router.post('/videogames', postGame)
 router.get('/genres', getGenre)
+
 
 
 module.exports = router;

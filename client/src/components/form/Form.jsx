@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import  { useDispatch } from 'react-redux'
+import  { useDispatch, useSelector } from 'react-redux'
 import { createVideogames } from "../../redux/action";
 import NavBar from "../navbar/NavBar";
 import styles from "./Form.module.css"
@@ -8,8 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 
 const Form = () => {
-  const navigate = useNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+    const videogames = useSelector((state)=> state.videogames)
+
+    const allPlatforms = [...new Set(videogames.flatMap((game) => game.platforms))];
+    const allGenres = [...new Set(videogames.flatMap((game)=> game.genres))]
+    
 
     const [games, setGames] = useState({
         name: "",
@@ -20,7 +25,7 @@ const Form = () => {
         rating: "",
         genres: []
     })
-   
+
 
     const [error, setError] = useState({
       name: "",
@@ -34,9 +39,10 @@ const Form = () => {
 
     const handleChange = (event) => {
       if (event.target.name === 'platforms' || event.target.name === 'genres') {
+        const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
         setGames({
           ...games,
-          [event.target.name]: event.target.value.replace(/\s*,\s*/g, ',').split(',')
+          [event.target.name]: selectedOptions
         })
       } else{
         setGames({
@@ -46,6 +52,7 @@ const Form = () => {
       } setError(validation({
         ...games,
         [event.target.name]: event.target.value,
+        videogames: videogames
     })
 );
     }
@@ -108,7 +115,20 @@ const Form = () => {
 
       <div className={styles.inputPlatforms}>
         <label className={styles.label} htmlFor="platforms" >Platforms: </label>
-        <input className={styles.input} id="platforms" type="text" name='platforms' placeholder="por ej. Xbox, PlayStation...." value={games.platforms.join(', ')} onChange={handleChange}/>
+        <select
+              className={styles.input}
+              id="platforms"
+              name="platforms"
+              multiple
+              value={games.platforms}
+              onChange={handleChange}
+            >
+              {allPlatforms.map((platform) => (
+                <option key={platform} value={platform}>
+                  {platform}
+                </option>
+              ))}
+            </select>
         {error.platforms && <p>{error.platforms}</p>}
       </div>
       <div className={styles.inputReleased}>
@@ -125,7 +145,20 @@ const Form = () => {
 
       <div className={styles.inputGenres}>
         <label className={styles.label} htmlFor="genres" >Genres: </label>
-        <input className={styles.input} id="genres" type="text" name='genres' placeholder="por ej. Action, Adventure..."value={games.genres.join(', ')} onChange={handleChange}/>
+        <select
+              className={styles.input}
+              id="genres"
+              name="genres"
+              multiple
+              value={games.genres}
+              onChange={handleChange}
+            >
+              {allGenres.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
+            </select>
         {error.genres && <p>{error.genres}</p>}
       </div>
     

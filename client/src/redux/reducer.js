@@ -5,7 +5,8 @@ import {
   CLEAN_DETAIL,
   FILTER,
   RESET,
-  VIDEOGAMES_NAME
+  VIDEOGAMES_NAME,
+
 } from "./action-types";
 
 const initialState = {
@@ -14,9 +15,9 @@ const initialState = {
   videogameName: [],
   videogamesDetail: {},
   filters: {
-    genre: '',      // Filtro de género
-    order: 'name',  // Orden predeterminado por nombre
-    rating: '',     // Filtro de calificación
+    genre: '',     
+    order: 'name',  
+    rating: '',     
     source: ''
   },
 };
@@ -46,6 +47,7 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         videogames: [...state.videogames, payload],
       };
+  
     case CLEAN_DETAIL:
       return {
       ...state,
@@ -72,14 +74,14 @@ const reducer = (state = initialState, { type, payload }) => {
         filters = {...filters, order: 'name'};
       }
 
-      // Aplicar filtros
+      
       if (filters.genre) {
         filteredResult = filteredResult.filter((game) =>
           game.genres.includes(filters.genre)
         );
       }
 
-      // Aplicar orden
+      
       if (filters.order === "AscendenteNombre") {
         filteredResult.sort((a, b) => a.name.localeCompare(b.name));
       }
@@ -87,7 +89,7 @@ const reducer = (state = initialState, { type, payload }) => {
         filteredResult.sort((a, b) => b.name.localeCompare(a.name));
       }
 
-      // Aplicar calificación
+      
       if (filters.rating === "AscRating") {
           filteredResult.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
       }

@@ -1,40 +1,22 @@
-/* const { Videogame, Genre } = require('../db');
-
-const postGame = async (req, res) => {
-  
-  try {  
-    const { name, description, platforms, background_image, released, rating, genres } = req.body;
-    console.log('genres de req.body', genres)
-    
-    const existingGenres = await Genre.findAll({ where: { name: genres } });
-    
-    const createdVideogame = await Videogame.create({
-      name, description, platforms, background_image, released, rating, 
-    });
-    console.log('verificando generos', createdVideogame)
-
-    await createdVideogame.addGenres(existingGenres);
-    
-    res.status(201).json(createdVideogame);
-  } catch (error) {
-    res.status(400).json({ error: 'Faltan datos en la creacion del videogames'});
-  }
-};
-
-module.exports = {
-  postGame,
-}; */
-
 const { Videogame, Genre } = require('../db');
 
 const postGame = async (req, res) => {
   try {
     const { name, description, platforms, background_image, released, rating, genres } = req.body;
-    console.log('genres de req.body', genres)
-    // Consulta los géneros existentes en la base de datos por nombre
-    const existingGenres = await Genre.findAll({ where: { name: genres } });
 
-    // Crea el videojuego sin asignar los géneros por ahora
+    // Consulta si ya existe un videojuego con el mismo nombre
+    const existingVideogame = await Videogame.findOne({ where: { name } });
+
+    if (existingVideogame) {
+      // Si el videojuego ya existe, actualiza los géneros asociados
+      const existingGenres = await Genre.findAll({ where: { name: genres } });
+
+      await existingVideogame.setGenres(existingGenres);
+
+      return res.status(200).json(existingVideogame);
+    }
+
+    // Si el videojuego no existe, crea un nuevo videojuego
     const createdVideogame = await Videogame.create({
       name,
       description,
@@ -43,13 +25,16 @@ const postGame = async (req, res) => {
       released,
       rating,
     });
-    console.log('verificando generos', createdVideogame)
+
+    // Consulta los géneros existentes en la base de datos por nombre
+    const existingGenres = await Genre.findAll({ where: { name: genres } });
+
     // Asigna los géneros al videojuego
     await createdVideogame.addGenres(existingGenres);
 
-    res.status(201).json(createdVideogame);
+    return res.status(201).json(createdVideogame);
   } catch (error) {
-    res.status(400).json({ error: 'Faltan datos en la creación del videojuego' });
+    return res.status(400).json({ error: 'Data is missing in the creation of the video game.' });
   }
 };
 

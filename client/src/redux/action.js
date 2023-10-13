@@ -5,6 +5,7 @@ import {
   DETAIL_GAMES,
   CREATE_GAMES,
   VIDEOGAMES_NAME,
+  
 } from "./action-types";
 import axios from "axios";
 
@@ -67,9 +68,7 @@ export const createVideogames = (games) => {
   };
 };
 
-/* export const cleanDetail = () =>({
-  type: CLEAN_DETAIL,
-}) */
+
 
 export const updateFilter = (filterType, value) => {
   return {
@@ -83,4 +82,5 @@ export const resetVideogames = () => {
     type: RESET,
   };
 };
+
 

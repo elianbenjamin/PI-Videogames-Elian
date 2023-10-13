@@ -9,8 +9,8 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState(name || "");
   const videogameName = useSelector((state) => state.videogameName);
-  const [showResults, setShowResults] = useState(false); // Estado para controlar la visibilidad de los resultados
-  const [noResults, setNoResults] = useState(false); // Estado para controlar la visibilidad del mensaje de "No se encontraron videojuegos"
+  const [showResults, setShowResults] = useState(false);
+  const [noResults, setNoResults] = useState(false); 
 
   const searchRef = useRef(null);
 
@@ -21,7 +21,7 @@ const SearchBar = () => {
       if (videogameName.length === 0) {
         setNoResults(true);
       }
-      setSearchTerm(""); // Limpiar el input después de la búsqueda
+      setSearchTerm(""); 
     });
   };
 
@@ -91,4 +91,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar; //si no busca los creados anda a github
+export default SearchBar; 

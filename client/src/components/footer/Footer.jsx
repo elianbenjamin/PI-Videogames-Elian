@@ -8,8 +8,8 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         
-        <p>copyright &copy; 2023 - App FullStack - Desarrollado por Elián. Todos los derechos reservados. </p>
-        <p>Esta aplicación utiliza datos proporcionados por RAWG VideoGames API.</p>
+        <p>copyright &copy; 2023 - App FullStack - Developed by Elián. All rights reserved. </p>
+        <p>This app uses data provided by RAWG VideoGames API.</p>
          
 
         

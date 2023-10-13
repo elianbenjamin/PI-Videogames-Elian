@@ -54,7 +54,7 @@ const getGame = async (_req, res) => {
       ...allApiVideogames,  
     ];
     
-    return res.send(allVideogames); //status(200)
+    return res.send(allVideogames); 
     
   } catch (error) {
     res.status(400).json({ error: error.message });
