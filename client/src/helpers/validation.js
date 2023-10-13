@@ -17,11 +17,15 @@ const validation = (error) => {
   }
 
 
-  if (!/^[a-zA-Z0-9\s.,!?()-]*$/.test(error.description)) {
-    errors.description = "The description is not valid";
+  if (!/^[a-zA-Z,\s]*$/.test(error.description)) {
+    errors.description = "The description is invalid";
   }
   if (error.description.length < 10) {
     errors.description = "The description is very short";
+  }
+
+  if(error.description.length > 120) {
+    errors.description = "Description should be less than or equal to 120 characters"
   }
 
 
