@@ -7,7 +7,7 @@ const getQuery = async (req, res) => {
     const { name } = req.query;
     const lowercaseName = name.toLowerCase();
 
-    // Buscar en la base de datos
+   
     const dbResults = await Videogame.findAll({
       where: {
         name: {
@@ -17,7 +17,7 @@ const getQuery = async (req, res) => {
       include: Genre,
     });
 
-    // Buscar en la API
+   
     const page = 15;
     const apiResults = await axios.get(
       `https://api.rawg.io/api/games?search=${name}&key=c0b6dc79f407436cbcf3ca1f02d1e6a8&page_size=${page}`,

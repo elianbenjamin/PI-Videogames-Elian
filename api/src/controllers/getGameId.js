@@ -49,7 +49,7 @@ const getGameId = async (req, res) => {
                 model: Genre,
                 as: 'genres',
                 attributes: ['id', 'name'],
-                through: { // atravez de la tabla intermedia
+                through: { 
                     attributes: []
                 },
                 order: [
@@ -59,7 +59,7 @@ const getGameId = async (req, res) => {
       });
 
       if (gameFromDb) {
-        // Si se encuentra en la base de datos, devolverlo directamente con los géneros mapeados
+        
         const genres = gameFromDb.genres.map((gen) => {
           return gen.name;
         });
