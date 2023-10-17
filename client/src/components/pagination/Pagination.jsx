@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Pagination.module.css";
+import { useSelector } from "react-redux";
+
+
 
 const Pagination = ({ pagina, setPagina, maximo }) => {
   const [input, setInput] = useState(1);
+
+  const {videogames} = useSelector((state)=> state)
+
 
   const nextPage = () => {
     setInput(parseInt(input) + 1);
@@ -29,6 +35,11 @@ const Pagination = ({ pagina, setPagina, maximo }) => {
       }
     }
   };
+
+  useEffect(()=>{
+    setPagina(1)
+    setInput(1)
+  },[videogames, setPagina])
 
   const onChange = (event) => {
     setInput(event.target.value);

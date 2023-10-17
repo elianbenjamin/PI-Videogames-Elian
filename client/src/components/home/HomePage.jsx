@@ -20,6 +20,7 @@ const HomePage = () => {
   const maximo = videogames.length / porPagina; 
 
   useEffect(() => {
+    setPagina(1)
     let timeOut;
     dispatch(getAllVideogames())
       .then(() => {
