@@ -1,8 +1,16 @@
-const { Videogame, Genre } = require('../db');
+const { Videogame, Genre } = require("../db");
 
 const postGame = async (req, res) => {
   try {
-    const { name, description, platforms, background_image, released, rating, genres } = req.body;
+    const {
+      name,
+      description,
+      platforms,
+      background_image,
+      released,
+      rating,
+      genres,
+    } = req.body;
 
     // Consulta si ya existe un videojuego con el mismo nombre
     const existingVideogame = await Videogame.findOne({ where: { name } });
@@ -34,7 +42,7 @@ const postGame = async (req, res) => {
 
     return res.status(201).json(createdVideogame);
   } catch (error) {
-    return res.status(400).json({ error: 'Data is missing in the creation of the video game.' });
+    return res.status(400).json({ error: "Error al crear el videojuego" });
   }
 };
 
